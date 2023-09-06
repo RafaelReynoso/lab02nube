@@ -1,0 +1,48 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestion de Contactos {% endblock %}
+
+{% block body %} 
+
+<div class="row">
+    <div class="col-md-4 offset-md-4 ">
+        <h2>Edicion de Contacto</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/editarContacto/" method="POST">{% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" id="textCodigo" value="{{contacto.codigo}}" name="txtCodigo" 
+                            class="form-control" placeholder="Codigo"
+                            maxlength="6" readonly required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="textNombre" value="{{contacto.nombre}}" name="txtNombre" 
+                            class="form-control" placeholder="Nombre" 
+                            maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="textApellido" value="{{contacto.apellido}}" name="txtApellido" 
+                            class="form-control" placeholder="Apellido" 
+                            maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="numTelefono" value="{{contacto.telefono}}" name="numTelefono" 
+                            class="form-control" placeholder="Telefono" 
+                            maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="textEmail" value="{{contacto.email}}" name="txtEmail" 
+                            class="form-control" placeholder="Email" 
+                            maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
